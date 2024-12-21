@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Employees = require('./employee');
 
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -11,6 +12,9 @@ const port = 3000;
 const uri =  "mongodb://root:NHXFaSDmiN6MylziiHoVDZtw@172.21.164.192:27017";
 
 mongoose.connect(uri,{'dbName':'employeeDB'});
+
+// Enable CORS for all routes
+app.use(cors());
 
 
 // Middleware to parse JSON requests
